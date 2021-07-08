@@ -5,7 +5,10 @@ import TableHeader from "../component/Table/TableHeader";
 import { getCountryData } from "../services/countriesService";
 import Button from "../component/Button/Button";
 
+const map = document.getElementById("svgMap");
+
 const CountryReport = ({ match }) => {
+  map.style.display = "none";
   const componentRef = useRef();
   const [countryData, setCountryData] = useState({
     name: "",
