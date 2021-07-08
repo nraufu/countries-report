@@ -1,28 +1,21 @@
-import React from 'react';
-import Navbar from './component/Navbar/Navbar';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Navbar from "./component/Navbar/Navbar";
 import Countries from "./pages/Countries";
-
-const countriesData = [{
-  id:1,
-  name: "rwanda",
-  population: "12.63 million",
-  size: "26,338 km²",
-}, {
-  id:2,
-  name: "kenya",
-  population: "52.57 million",
-  size: "580,367 km²",
-}]
+import CountryReport from "./pages/CountryReport";
 
 const App = () => {
   return (
     <div className="App">
-    <Navbar />
-    <div className="container mt-5">
-     <Countries data={countriesData}/>
-    </div>
+      <Navbar />
+      <main className="container mt-5">
+        <Switch>
+          <Route path="/country/:id" component={CountryReport} />
+          <Route path="/" exact component={Countries} />
+        </Switch>
+      </main>
     </div>
   );
-}
+};
 
 export default App;
